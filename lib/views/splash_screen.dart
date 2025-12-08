@@ -27,7 +27,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
     if (loggedIn) {
       Navigator.pushReplacement(
-<<<<<<< HEAD
         context,
         MaterialPageRoute(builder: (_) => HomeScreen()),
       );
@@ -36,19 +35,12 @@ class _SplashScreenState extends State<SplashScreen> {
         context,
         MaterialPageRoute(builder: (_) => LoginScreen()),
       );
-=======
-          context, MaterialPageRoute(builder: (_) => HomeScreen()));
-    } else {
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (_) => LoginScreen()));
->>>>>>> origin/master
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-<<<<<<< HEAD
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -61,10 +53,4 @@ class _SplashScreenState extends State<SplashScreen> {
       ),
     );
   }
-
-=======
-      body: Center(child: Text("Firebase Notification App")),
-    );
-  }
->>>>>>> origin/master
 }
