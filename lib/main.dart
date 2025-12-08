@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
-<<<<<<< HEAD
 
 import 'firebase_options.dart';
 
@@ -26,27 +25,6 @@ void main() async {
   await LocalNotificationService.init();
 
   runApp(const MyApp());
-=======
-
-import 'firebase_options.dart';
-import 'viewmodels/auth_viewmodel.dart';
-import 'views/splash_screen.dart';
-
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
-  // Firebase initialize
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-
-  runApp(
-    ChangeNotifierProvider(
-      create: (_) => AuthViewModel(),
-      child: const MyApp(),
-    ),
-  );
->>>>>>> origin/master
 }
 
 class MyApp extends StatelessWidget {
@@ -54,7 +32,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AuthViewModel()),
@@ -65,12 +42,6 @@ class MyApp extends StatelessWidget {
         home: SplashScreen(),
         debugShowCheckedModeBanner: false,
       ),
-=======
-    return MaterialApp(
-      title: "Firebase Notification",
-      home: SplashScreen(),
-      debugShowCheckedModeBanner: false,
->>>>>>> origin/master
     );
   }
 }
