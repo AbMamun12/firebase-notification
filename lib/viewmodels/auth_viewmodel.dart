@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import '../core/prefs.dart';
 import '../models/user_model.dart';
 import '../services/auth_service.dart';
+<<<<<<< HEAD
 import '../services/fcm_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+=======
+>>>>>>> origin/master
 
 class AuthViewModel extends ChangeNotifier {
   final service = AuthService();
@@ -20,6 +23,7 @@ class AuthViewModel extends ChangeNotifier {
 
     if (user != null) {
       currentUser = user;
+<<<<<<< HEAD
 
       /// === SAVE USER IN LOCAL STORAGE === ///
       await Prefs.saveUser(user.id);
@@ -35,6 +39,9 @@ class AuthViewModel extends ChangeNotifier {
             .update({'fcmToken': token});
       }
 
+=======
+      await Prefs.saveUser(user.id);
+>>>>>>> origin/master
       notifyListeners();
       return true;
     } else {
@@ -48,6 +55,7 @@ class AuthViewModel extends ChangeNotifier {
     if (id == null) return false;
 
     currentUser = await service.getUserById(id);
+<<<<<<< HEAD
 
     // update token here also
     final fcm = FCMService();
@@ -59,6 +67,8 @@ class AuthViewModel extends ChangeNotifier {
           .update({'fcmToken': token});
     }
 
+=======
+>>>>>>> origin/master
     notifyListeners();
     return true;
   }

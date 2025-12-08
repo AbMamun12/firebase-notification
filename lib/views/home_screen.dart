@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+<<<<<<< HEAD
 import '../viewmodels/notification_vm.dart';
 import 'notification_list_screen.dart';
 import '../viewmodels/auth_viewmodel.dart';
@@ -31,6 +32,14 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final notifVM = Provider.of<NotificationVM>(context);
+=======
+import '../viewmodels/auth_viewmodel.dart';
+import 'login_screen.dart';
+
+class HomeScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+>>>>>>> origin/master
     final auth = Provider.of<AuthViewModel>(context);
     final user = auth.currentUser!;
 
@@ -38,6 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Text("Home"),
         actions: [
+<<<<<<< HEAD
           // notification icon with badge
           Stack(
             children: [
@@ -72,12 +82,17 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: Icon(Icons.logout),
             onPressed: () {
               // your existing logout dialog
+=======
+          IconButton(
+            onPressed: () {
+>>>>>>> origin/master
               showDialog(
                 context: context,
                 builder: (_) => AlertDialog(
                   title: Text("Logout"),
                   content: Text("Do you want to logout?"),
                   actions: [
+<<<<<<< HEAD
                     TextButton(onPressed: () => Navigator.pop(context), child: Text("Cancel")),
                     ElevatedButton(
                       onPressed: () async {
@@ -86,14 +101,42 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                       child: Text("OK"),
                     ),
+=======
+                    TextButton(
+                        onPressed: () => Navigator.pop(context),
+                        child: Text("Cancel")),
+                    ElevatedButton(
+                        onPressed: () async {
+                          await auth.logout();
+                          Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(builder: (_) => LoginScreen()),
+                                (route) => false,
+                          );
+                        },
+                        child: Text("OK")),
+>>>>>>> origin/master
                   ],
                 ),
               );
             },
+<<<<<<< HEAD
           ),
         ],
       ),
       body: Center(child: Text("Welcome ${user.name}", style: TextStyle(fontSize: 22))),
+=======
+            icon: Icon(Icons.logout),
+          )
+        ],
+      ),
+      body: Center(
+        child: Text(
+          "Welcome ${user.name}",
+          style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+        ),
+      ),
+>>>>>>> origin/master
     );
   }
 }
