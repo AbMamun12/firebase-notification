@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 
 import 'firebase_options.dart';
 
-// VIEWMODELS
 import 'viewmodels/auth_viewmodel.dart';
 import 'viewmodels/notification_vm.dart';
 
