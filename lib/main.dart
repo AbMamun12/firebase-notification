@@ -13,6 +13,7 @@ import 'core/local_notif.dart';
 // SCREENS
 import 'views/splash_screen.dart';
 
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
