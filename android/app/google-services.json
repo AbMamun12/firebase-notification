@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "90695386811",
+    "project_id": "cchild-monitoring",
+    "storage_bucket": "cchild-monitoring.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:90695386811:android:3dda234ac0ab801d5f4b9e",
+        "android_client_info": {
+          "package_name": "com.example.firebase_notification"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALwtO3XK-GW1BbCGXVU_uHlCX8GWsP-0Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
