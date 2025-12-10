@@ -1,3 +1,4 @@
+import 'package:firebase_notification/views/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../viewmodels/notification_vm.dart';
@@ -32,7 +33,16 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final notifVM = Provider.of<NotificationVM>(context);
     final auth = Provider.of<AuthViewModel>(context);
+
+    if (auth.currentUser == null) {
+      Future.microtask(() {
+        Navigator.pushNamedAndRemoveUntil(context, '/login', (route) => false);
+      });
+      return SizedBox.shrink();
+    }
+
     final user = auth.currentUser!;
+
 
     return Scaffold(
       appBar: AppBar(
@@ -41,8 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
           // notification icon with badge
           Stack(
             children: [
-              IconButton(
-                icon: Icon(Icons.notifications),
+              IconButton(icon: Icon(Icons.notifications),
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -82,7 +91,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     ElevatedButton(
                       onPressed: () async {
                         await auth.logout();
-                        Navigator.pushNamedAndRemoveUntil(context, '/login', (r) => false);
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(builder: (_) => LoginScreen()),
+                              (route) => false,
+                        );
                       },
                       child: Text("OK"),
                     ),

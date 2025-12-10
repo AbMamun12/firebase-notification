@@ -36,17 +36,21 @@ class NotificationService {
   // Mark read/unread
   Future markAsRead(String uid, AppNotification notif) async {
     if (notif.isGlobal) {
-      // For global ones, you may store read status per-user in a subcollection like:
-      // notifications/global/items/{notifId}/readBy/{uid}: {readAt: ...}
-      // Simpler approach: create a per-user read registry
-      await _db
+      final notifRef = _db
           .collection('notifications')
           .doc('global')
           .collection('items')
-          .doc(notif.id)
-          .collection('readBy')
-          .doc(uid)
-          .set({'readAt': FieldValue.serverTimestamp()});
+          .doc(notif.id);
+
+      // 1) mark readBy
+      await notifRef.collection('readBy').doc(uid).set({
+        'readAt': FieldValue.serverTimestamp(),
+      });
+
+      // 2) trigger stream update
+      await notifRef.update({
+        'readCount': FieldValue.increment(1),
+      });
     } else {
       await _db
           .collection('notifications')
@@ -59,14 +63,19 @@ class NotificationService {
 
   Future markAsUnread(String uid, AppNotification notif) async {
     if (notif.isGlobal) {
-      await _db
+      final notifRef = _db
           .collection('notifications')
           .doc('global')
           .collection('items')
-          .doc(notif.id)
-          .collection('readBy')
-          .doc(uid)
-          .delete();
+          .doc(notif.id);
+
+      // remove read mark
+      await notifRef.collection('readBy').doc(uid).delete();
+
+      // reduce read count (minimum 0)
+      await notifRef.update({
+        'readCount': FieldValue.increment(-1),
+      });
     } else {
       await _db
           .collection('notifications')
