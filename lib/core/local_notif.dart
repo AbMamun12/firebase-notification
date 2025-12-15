@@ -22,10 +22,13 @@ class LocalNotificationService {
     String? payload,
   }) async {
     const androidDetails = AndroidNotificationDetails(
-      'app_channel', 'App Notifications',
+      'app_channel',
+      'App Notifications',
       channelDescription: 'App notifications channel',
       importance: Importance.max,
       priority: Priority.high,
+      playSound: true,
+      enableVibration: true,
     );
     const iosDetails = DarwinNotificationDetails();
     const platform = NotificationDetails(android: androidDetails, iOS: iosDetails);

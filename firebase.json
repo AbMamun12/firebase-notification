@@ -1,1 +1,38 @@
-{"flutter":{"platforms":{"android":{"default":{"projectId":"cchild-monitoring","appId":"1:90695386811:android:3dda234ac0ab801d5f4b9e","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"cchild-monitoring","configurations":{"android":"1:90695386811:android:3dda234ac0ab801d5f4b9e","ios":"1:90695386811:ios:718419dca7c7e52f5f4b9e","macos":"1:90695386811:ios:718419dca7c7e52f5f4b9e","web":"1:90695386811:web:679844c131b9ffa95f4b9e","windows":"1:90695386811:web:7adf2202c7bbfc225f4b9e"}}}}}}
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "cchild-monitoring",
+          "appId": "1:90695386811:android:3dda234ac0ab801d5f4b9e",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "cchild-monitoring",
+          "configurations": {
+            "android": "1:90695386811:android:3dda234ac0ab801d5f4b9e",
+            "ios": "1:90695386811:ios:718419dca7c7e52f5f4b9e",
+            "macos": "1:90695386811:ios:718419dca7c7e52f5f4b9e",
+            "web": "1:90695386811:web:679844c131b9ffa95f4b9e",
+            "windows": "1:90695386811:web:7adf2202c7bbfc225f4b9e"
+          }
+        }
+      }
+    }
+  },
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ]
+    }
+  ]
+}
